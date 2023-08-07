@@ -5,17 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <p>안녕하세요 소통해요</p>
     <div>
-        <p>안녕이란말 헬로우헬로우</p>
+        <p id="hi">안녕이란말 헬로우헬로우</p>
         <div>쿠쿠</div>
         <div>
             <p>
                 쿠쿠는 밥솥이라능
-            </p>
         </div>
     </div>
+    <div class="alert-box" id="al">
+        알림창띠
+        <button onclick="document.getElementsByClassName('alert-box')[0].style.display = 'none';">존나닫기</button>
+    </div>  
+    <button onclick="document.getElementsByClassName('alert-box')[0].style.display = 'block';">존나열기</button>
+
 </body>
+<script>
+    document.getElementById('hi').innerHTML = "빨아"
+    document.getElementById('hi').style.fontSize = "6px"
+</script>
 </html>
