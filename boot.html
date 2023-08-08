@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+  <body>
+    
+    <button class="login-btn">로그인</button>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control">
+           </div>
+           <div class="my-3">
+             <input type="password" class="form-control">
+           </div>
+           <button type="submit" class="btn btn-primary">전송</button>
+           <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form> 
+
+      </div>
+    </div> 
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav> 
+      
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul> 
+
+
+
+
+      <script>
+        $('.navbar-toggler').on('click', function(){
+            $('.list-group').toggleClass('show')
+        });
+
+        $('.login-btn').on('click', function(){
+            $('.black-bg').toggleClass('show-modal')
+        });
+
+        $('#close').on('click', function(){
+            <!-- $('.black-bg').hide() -->
+            $('.black-bg').toggleClass('show-modal')
+        })
+        $('form').on('submit', function(e){
+          if($('.form-control')[0].value == ''){ //입력값 가져오기
+            e.preventDefault()//제출완료 페이지로 넘어가는 것 방지
+            alert('아이디를 입력하세요')} 
+          if($('.form-control')[1].value == '' &&
+          $('.form-control')[0].value != ''){
+            e.preventDefault()
+            alert('비밀번호를 입력하세요')}
+          if($('.form-control')[1].value.length > 0 &&
+          $('.form-control')[1].value.length < 6 &&
+          $('.form-control')[0].value != '') {
+            e.preventDefault()
+            alert('비밀번호를 6자리 이상 입력하세요')
+      }
+});
+      </script>
+     
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+
+</html>
